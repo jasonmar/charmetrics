@@ -11,7 +11,7 @@ object Metrics {
       val characterCounts = countCharacters(r.payload)
       val maxFrequency = characterCounts.values.max
       val minFrequency = characterCounts.values.min
-      val mostFrequentChars = characterCounts.filter(_._2 == maxFrequency).keys.toVector
+      val mostFrequentChars = characterCounts.filter(_._2 == maxFrequency).keys.toVector.sorted
       val leastFrequentChars = characterCounts.filter(_._2 == minFrequency).keys.toVector.sorted
       val frequentCharPerWordRatio: Float = maxFrequency.toFloat / wordCount.toFloat
       CharacterFrequencyMetrics(mostFrequentChars.head.toString, leastFrequentChars.head.toString, frequentCharPerWordRatio)
